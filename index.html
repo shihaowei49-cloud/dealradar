@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>羊毛雷达 · 工作台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7f9;
+  --surface:#fff;
+  --surface-2:#f9fafb;
+  --surface-3:#f1f3f5;
+  --line:#e4e7ec;
+  --line-strong:#d0d5dd;
+  --text:#101828;
+  --muted:#667085;
+  --faint:#98a2b3;
+  --accent:#2563eb;
+  --accent-soft:#eff6ff;
+  --good:#067647;
+  --good-soft:#ecfdf3;
+  --warn:#b54708;
+  --warn-soft:#fffaeb;
+  --bad:#b42318;
+  --bad-soft:#fef3f2;
+  --radius:8px;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:13px/1.5 "Inter","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid #93c5fd;outline-offset:2px}
+.app{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100vh}
+.sidebar{
+  border-right:1px solid var(--line);
+  background:#fbfcfd;
+  padding:18px 14px;
+  position:sticky;
+  top:0;
+  height:100vh;
+}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 6px 18px}
+.brand-mark{width:28px;height:28px;border:1px solid var(--line-strong);border-radius:7px;background:#fff;display:grid;place-items:center;font-weight:800;color:var(--accent)}
+.brand-title{font-weight:800;letter-spacing:0}
+.brand-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.nav-group{margin-top:16px}
+.nav-label{font-size:11px;color:var(--faint);font-weight:700;letter-spacing:0;text-transform:uppercase;padding:0 8px 7px}
+.nav-btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  border-radius:7px;
+  padding:8px;
+  text-align:left;
+  font-weight:650;
+}
+.nav-btn:hover{background:var(--surface-3);color:var(--text)}
+.nav-btn.active{background:var(--accent-soft);color:var(--accent)}
+.nav-count{font:11px/1 var(--mono);color:var(--faint)}
+.content{min-width:0;padding:22px}
+.topbar{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:18px;
+}
+h1{font-size:22px;line-height:1.2;margin:0;font-weight:800;letter-spacing:0}
+.subtitle{color:var(--muted);margin-top:5px}
+.updated{font:12px/1.4 var(--mono);color:var(--muted);white-space:nowrap}
+.metrics{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line);margin-bottom:14px}
+.metric{background:var(--surface);padding:12px 14px}
+.metric-label{font-size:11px;color:var(--muted);font-weight:700}
+.metric-value{font:700 20px/1.2 var(--mono);margin-top:4px}
+.toolbar{
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) 150px 144px 144px 140px auto auto;
+  gap:8px;
+  margin-bottom:12px;
+}
+.control{
+  border:1px solid var(--line);
+  background:var(--surface);
+  border-radius:7px;
+  height:36px;
+  padding:0 10px;
+  color:var(--text);
+  min-width:0;
+}
+.btn{
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:7px;
+  height:36px;
+  padding:0 12px;
+  font-weight:700;
+  white-space:nowrap;
+}
+.btn:hover{border-color:var(--line-strong);background:var(--surface-2)}
+.btn.primary{background:var(--text);border-color:var(--text);color:#fff}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:14px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);min-width:0}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.panel-title{font-weight:800}
+.panel-meta{font:12px var(--mono);color:var(--muted)}
+.table-wrap{overflow:auto;max-height:calc(100vh - 220px)}
+table{width:100%;border-collapse:collapse;min-width:980px}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:middle}
+th{position:sticky;top:0;background:var(--surface-2);z-index:1;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:0;text-transform:uppercase}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--surface-2)}
+tbody tr.selected{background:var(--accent-soft)}
+.score{font:700 12px var(--mono)}
+.title-cell{min-width:310px}
+.title-main{font-weight:750;line-height:1.35}
+.title-sub{color:var(--muted);font-size:12px;margin-top:4px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.mono{font-family:var(--mono)}
+.tag{display:inline-flex;align-items:center;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:750;border:1px solid transparent;white-space:nowrap}
+.tag.gray{background:var(--surface-3);color:var(--muted)}
+.tag.blue{background:var(--accent-soft);color:var(--accent)}
+.tag.green{background:var(--good-soft);color:var(--good)}
+.tag.orange{background:var(--warn-soft);color:var(--warn)}
+.tag.red{background:var(--bad-soft);color:var(--bad)}
+.row-actions{display:flex;gap:6px}
+.mini{
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--muted);
+  border-radius:6px;
+  height:28px;
+  padding:0 8px;
+  font-weight:700;
+  font-size:12px;
+}
+.mini:hover{color:var(--text);border-color:var(--line-strong)}
+.mini.active{background:var(--accent-soft);border-color:#bfdbfe;color:var(--accent)}
+.detail{position:sticky;top:22px;max-height:calc(100vh - 44px);overflow:auto}
+.detail-empty{padding:42px 20px;color:var(--muted);text-align:center}
+.detail-body{padding:14px}
+.detail-title{font-size:17px;font-weight:800;line-height:1.35;letter-spacing:0;margin:0 0 10px}
+.detail-summary{color:var(--muted);margin-bottom:12px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.field{border:1px solid var(--line);border-radius:7px;padding:9px}
+.field-label{font-size:11px;color:var(--muted);font-weight:800}
+.field-value{font-weight:750;margin-top:2px}
+.section{border-top:1px solid var(--line);padding-top:13px;margin-top:13px}
+.section h2{font-size:12px;text-transform:uppercase;letter-spacing:0;color:var(--muted);margin:0 0 9px}
+.steps{counter-reset:step;display:grid;gap:7px}
+.step{display:grid;grid-template-columns:22px 1fr;gap:8px;color:var(--text)}
+.step:before{counter-increment:step;content:counter(step);width:22px;height:22px;border-radius:999px;background:var(--surface-3);display:grid;place-items:center;font:700 11px var(--mono);color:var(--muted)}
+.list{display:grid;gap:7px;margin:0;padding:0;list-style:none}
+.list li{color:var(--muted)}
+.promo-list{display:flex;flex-wrap:wrap;gap:6px}
+.promo{border:1px dashed var(--line-strong);background:var(--surface-2);border-radius:6px;padding:5px 8px;font:12px var(--mono)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#111827;color:#fff;border-radius:7px;padding:9px 12px;font-weight:700;opacity:0;pointer-events:none;transition:.18s;z-index:20}
+.toast.show{opacity:1}
+.empty-row{padding:42px;text-align:center;color:var(--muted)}
+@media(max-width:1180px){
+  .app{grid-template-columns:1fr}
+  .sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .nav-group{display:flex;gap:6px;overflow:auto;margin-top:8px}
+  .nav-label{display:none}
+  .nav-btn{width:auto;white-space:nowrap}
+  .content{padding:16px}
+  .workspace{grid-template-columns:1fr}
+  .detail{position:static;max-height:none}
+  .toolbar{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:760px){
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .toolbar{grid-template-columns:1fr}
+  .topbar{display:block}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">DR</div>
+      <div>
+        <div class="brand-title">羊毛雷达</div>
+        <div class="brand-sub">Command Center v0.6</div>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">Workspace</div>
+      <button class="nav-btn active" data-mode="focus">今日行动 <span class="nav-count" data-count="focus">0</span></button>
+      <button class="nav-btn" data-mode="direct">可直接薅 <span class="nav-count" data-count="direct">0</span></button>
+      <button class="nav-btn" data-mode="ai">AI / API / 订阅 <span class="nav-count" data-count="ai">0</span></button>
+      <button class="nav-btn" data-mode="watch">观察列表 <span class="nav-count" data-count="watch">0</span></button>
+      <button class="nav-btn" data-mode="done">已薅 <span class="nav-count" data-count="done">0</span></button>
+      <button class="nav-btn" data-mode="skipped">已跳过 <span class="nav-count" data-count="skipped">0</span></button>
+      <button class="nav-btn" data-mode="all">全部线索 <span class="nav-count" data-count="all">0</span></button>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div>
+        <h1>DealRadar Command Center</h1>
+        <div class="subtitle">按性价比、门槛、风险和证据强度排序的薅羊毛工作台。</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="updated" id="updated">Loading</div>
+        <button class="btn" id="refresh-btn" type="button" onclick="refreshData()" style="height:30px;font-size:12px">↻ 获取最新数据</button>
+      </div>
+    </header>
+
+    <section class="metrics">
+      <div class="metric"><div class="metric-label">线索总数</div><div class="metric-value" id="metric-total">0</div></div>
+      <div class="metric"><div class="metric-label">今日行动</div><div class="metric-value" id="metric-focus">0</div></div>
+      <div class="metric"><div class="metric-label">可直接薅</div><div class="metric-value" id="metric-direct">0</div></div>
+      <div class="metric"><div class="metric-label">高风险</div><div class="metric-value" id="metric-risk">0</div></div>
+      <div class="metric"><div class="metric-label">观察中</div><div class="metric-value" id="metric-watch">0</div></div>
+    </section>
+
+    <section class="toolbar">
+      <input class="control" id="q" placeholder="搜索标题、平台、优惠码、模型">
+      <select class="control" id="sort">
+        <option value="roi">按性价比</option>
+        <option value="score">按决策分</option>
+        <option value="value">按价值</option>
+        <option value="risk">按风险</option>
+        <option value="time">按时间</option>
+      </select>
+      <select class="control" id="category"><option value="all">全部类型</option></select>
+      <select class="control" id="source"><option value="all">全部来源</option></select>
+      <select class="control" id="status">
+        <option value="all">全部状态</option>
+        <option value="active">可薅</option>
+        <option value="conditional">有门槛</option>
+        <option value="ended">已结束</option>
+      </select>
+      <button class="btn primary" id="copyDigest" type="button">复制清单</button>
+      <button class="btn" id="resetView" type="button">重置</button>
+    </section>
+
+    <section class="workspace">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title" id="tableTitle">今日行动</div>
+          <div class="panel-meta"><span id="shown">0</span> / <span id="total">0</span></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Score</th>
+                <th>线索</th>
+                <th>来源</th>
+                <th>类型</th>
+                <th>状态</th>
+                <th>风险</th>
+                <th>证据</th>
+                <th>性价比</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="rows">
+              <tr><td colspan="9" class="empty-row">正在加载数据</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="panel detail" id="detail">
+        <div class="detail-empty">选择一条线索查看详情</div>
+      </aside>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast">已复制</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const $$=s=>Array.from(document.querySelectorAll(s));
+const STORAGE_KEY='dealradar-v06-state';
+const filters={mode:'focus',q:'',sort:'roi',category:'all',source:'all',status:'all'};
+const TARGET_CATS=new Set(['AI算力','AI订阅','API中转','现金券','资源']);
+const AI_TERMS=['gpt','chatgpt','claude','cursor','codex','gemini','openai','api','token','模型','算力','额度','中转','订阅','会员','business','ultra','mimo','coding plan'];
+const ACTION_TERMS=['免费','赠送','额度','优惠码','折扣','半价','买一送一','补货','注册送','可领','领取','邀请','coupon','free','100% off'];
+const NOISE_TERMS=['板块申请','类别','求助','头脑风暴','病友交流','相亲角','考研','怎么玩','怎么个玩法','有什么建议','如何出ui','指令','需求是开发','讨论'];
+const ENDED_TERMS=['已结束','已无','已蹬完','已发完','没了','领完','抢完','结束了','过期','被ban','封号','翻车'];
+const RISK_TERMS=['ban','封号','黑卡','盗刷','骗子','钓鱼','不能用','不值得','劝退','翻车','风险','失效','速度慢'];
+const CONSUMER_TERMS=['steam','epic games','game','cpu','gpu','monitor','motherboard','amazon','mattress','doorbell','coffee','pepsi','meal','drink','diaper','razor'];
+const URGENT_TERMS=['最后一天','限时','今日','今天','马上','即将','补货','先到先得','last day','limited time'];
+const DONE_TERMS=['done','好了','已添加','加了','已加','可以了','到账','成功'];
+const STATUS_LABEL={active:'可薅',conditional:'有门槛',ended:'已结束'};
+const RISK_LABEL={low:'低',medium:'中',high:'高'};
+const EVIDENCE_LABEL={high:'强',medium:'中',low:'弱'};
+const MODE_LABEL={focus:'今日行动',direct:'可直接薅',ai:'AI / API / 订阅',watch:'观察列表',done:'已薅',skipped:'已跳过',all:'全部线索'};
+let DATA=[];
+let selectedId='';
+let localState=loadLocalState();
+
+function loadLocalState(){
+  try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}catch{return {}}
+}
+function saveLocalState(){
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(localState));
+}
+function keyOf(d){return d.source_id||d.url||d.title}
+function userState(d){return localState[keyOf(d)]||''}
+function setUserState(id,state){
+  if(state)localState[id]=state;else delete localState[id];
+  saveLocalState();
+  renderAll();
+}
+
+async function load(){
+  try{
+    const res=await fetch('./data/structured/deals.json?'+Date.now());
+    const json=await res.json();
+    const previousSelected=selectedId;
+    DATA=(json.deals||[]).map(enrichDeal);
+    selectedId=previousSelected&&DATA.some(d=>keyOf(d)===previousSelected)?previousSelected:(DATA[0]?keyOf(DATA[0]):'');
+    const dt=json.updated_at?new Date(json.updated_at):new Date();
+    $('#updated').textContent='Updated '+dt.toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+    setupSelects();
+    renderAll();
+  }catch(err){
+    $('#rows').innerHTML=`<tr><td colspan="9" class="empty-row">${esc(err.message)}</td></tr>`;
+  }
+}
+
+async function refreshData(){
+  const btn=$('#refresh-btn');
+  btn.disabled=true;
+  btn.textContent='获取中...';
+  await load();
+  btn.disabled=false;
+  btn.textContent='↻ 获取最新数据';
+}
+
+function enrichDeal(d){
+  const text=dealText(d);
+  const isEnded=d.status==='ended'||hasAny(text,ENDED_TERMS);
+  const isNoise=hasAny(text,NOISE_TERMS)&&!hasAny(text,AI_TERMS);
+  const isConsumer=hasAny(text,CONSUMER_TERMS)&&d.category==='其它';
+  const aiHits=countHits(text,AI_TERMS);
+  const actionHits=countHits(text,ACTION_TERMS);
+  const riskHits=countHits(text,RISK_TERMS);
+  const targetCat=TARGET_CATS.has(d.category);
+  const tierWeight={S:28,A:20,B:12,C:4,X:-40}[d.tier]||0;
+  const sourceWeight={'linux.do':10,'v2ex':8,'nodeseek':6,'52pojie':2,'reddit':-4}[d.source]||0;
+  const categoryWeight={'AI算力':28,'API中转':28,'AI订阅':24,'现金券':12,'资源':10,'其它':0}[d.category]||0;
+  const statusWeight=isEnded?-80:(d.status==='active'?12:4);
+  const social=Math.min(10,Math.log10((Number(d.views)||0)+1)*3+Math.min(Number(d.likes)||0,80)/20+Math.min(Number(d.replies)||0,60)/30);
+  let score=(Number(d.value)||1)*10+tierWeight+sourceWeight+categoryWeight+statusWeight+Math.min(aiHits*7,18)+Math.min(actionHits*5,12)+social;
+  const ageDays=daysSince(d.last_posted_at||d.created_at||d.crawled_at);
+  if(Number.isFinite(ageDays)&&ageDays>7)score-=Math.min(18,Math.floor(ageDays/7)*4);
+  if(isNoise)score-=35;
+  if(isConsumer)score-=18;
+  if(riskHits)score-=Math.min(riskHits*8,22);
+  if(!targetCat&&!aiHits)score=Math.min(score,d.source==='reddit'?48:58);
+  if(d.category==='其它'&&d.source==='reddit')score=Math.min(score,46);
+  if(isConsumer)score=Math.min(score,46);
+  score=Math.max(0,Math.min(100,Math.round(score)));
+  const risk=isEnded?'high':riskHits>=2?'high':(riskHits||d.status==='conditional'||d.category==='API中转')?'medium':'low';
+  const evidence=evidenceLevel(d,text);
+  const urgency=hasAny(text,URGENT_TERMS)?'now':(Number.isFinite(ageDays)&&ageDays<=2?'soon':'open');
+  const difficulty=difficultyOf(d,risk);
+  const roi=Math.round(score/difficulty);
+  return {...d,_text:text,_score:score,_risk:risk,_evidence:evidence,_urgency:urgency,_difficulty:difficulty,_roi:roi,_noise:isNoise,_ended:isEnded,_consumer:isConsumer,_target:targetCat||aiHits>0,_actionable:actionHits>0||Boolean((d.promo_codes||[]).length),_steps:claimSteps(d,risk,text)};
+}
+
+function dealText(d){
+  return [d.title,d.summary,d.category,d.source,d.deadline,...(d.pros||[]),...(d.cons||[]),...(d.promo_codes||[]),...(d.comments_sample||[])].join(' ').toLowerCase();
+}
+function hasAny(text,terms){return terms.some(t=>text.includes(t.toLowerCase()))}
+function countHits(text,terms){return terms.reduce((n,t)=>n+(text.includes(t.toLowerCase())?1:0),0)}
+function daysSince(raw){const t=Date.parse(raw||'');return Number.isFinite(t)?(Date.now()-t)/86400000:NaN}
+function evidenceLevel(d,text){
+  const comments=(d.comments_sample||[]).length;
+  const likes=Number(d.likes)||0;
+  const replies=Number(d.replies)||0;
+  if(hasAny(text,DONE_TERMS)||comments>=2||likes>=20||replies>=20)return 'high';
+  if(comments||likes>=5||replies>=5)return 'medium';
+  return 'low';
+}
+function difficultyOf(d,risk){
+  let n=1;
+  if(d.status==='conditional')n+=1.4;
+  if(risk==='medium')n+=.8;
+  if(risk==='high')n+=2.2;
+  if(d.category==='API中转')n+=.5;
+  if((d.promo_codes||[]).length)n-=.3;
+  return Math.max(1,Math.min(5,n));
+}
+function claimSteps(d,risk,text){
+  const steps=['打开原帖确认最新评论'];
+  if((d.promo_codes||[]).length)steps.push('复制优惠码并核对结算价');
+  if(d.category==='API中转')steps.push('注册后先跑小请求测试延迟和扣费');
+  if(d.category==='AI订阅'||hasAny(text,['team','business','cursor','gemini']))steps.push('确认地区、账号资格和付款门槛');
+  if(hasAny(text,['评论','留下 id','留 id','留邮箱','加群','进群']))steps.push('按原帖要求回帖 ID 或加群领取');
+  if(risk!=='low')steps.push('不要主账号和大额充值');
+  return [...new Set(steps)].slice(0,4);
+}
+
+function setupSelects(){
+  fillSelect('#category',[...new Set(DATA.map(d=>d.category).filter(Boolean))],filters.category);
+  fillSelect('#source',[...new Set(DATA.map(d=>d.source).filter(Boolean))],filters.source);
+  $('#status').value=filters.status;
+}
+function fillSelect(selector,items,current){
+  const el=$(selector);
+  const first=el.options[0].outerHTML;
+  el.innerHTML=first+items.sort().map(v=>`<option value="${attr(v)}">${esc(v)}</option>`).join('');
+  el.value=items.includes(current)?current:'all';
+}
+
+function renderAll(){
+  renderMetrics();
+  renderNavCounts();
+  const list=filteredDeals();
+  if(!list.some(d=>keyOf(d)===selectedId))selectedId=list[0]?keyOf(list[0]):'';
+  renderRows(list);
+  renderDetail();
+  $('#tableTitle').textContent=MODE_LABEL[filters.mode]||'线索';
+  $('#shown').textContent=list.length;
+  $('#total').textContent=DATA.length;
+}
+function basePass(d,mode){
+  const state=userState(d);
+  if(mode==='watch')return state==='watch';
+  if(mode==='done')return state==='done';
+  if(mode==='skipped')return state==='skip';
+  if(mode==='all')return true;
+  if(state==='skip'||state==='done')return false;
+  if(mode==='direct')return !d._ended&&!d._noise&&!d._consumer&&d.status==='active'&&d._risk!=='high'&&d._score>=50&&(d._target||d._actionable);
+  if(mode==='ai')return !d._ended&&!d._noise&&(d.category==='AI算力'||d.category==='AI订阅'||d.category==='API中转'||hasAny(d._text,AI_TERMS));
+  return !d._ended&&!d._noise&&!d._consumer&&d._score>=50&&(d._target||d._score>=70);
+}
+function filteredDeals(){
+  const q=filters.q.trim().toLowerCase();
+  let rows=DATA.filter(d=>{
+    if(!basePass(d,filters.mode))return false;
+    if(filters.category!=='all'&&d.category!==filters.category)return false;
+    if(filters.source!=='all'&&d.source!==filters.source)return false;
+    if(filters.status!=='all'&&d.status!==filters.status)return false;
+    if(q&&!d._text.includes(q))return false;
+    return true;
+  });
+  rows.sort(sorter(filters.sort));
+  return rows;
+}
+function sorter(sort){
+  if(sort==='score')return (a,b)=>b._score-a._score||b._roi-a._roi;
+  if(sort==='value')return (a,b)=>(b.value||0)-(a.value||0)||b._score-a._score;
+  if(sort==='risk')return (a,b)=>riskRank(b._risk)-riskRank(a._risk)||b._score-a._score;
+  if(sort==='time')return (a,b)=>dealTime(b)-dealTime(a)||b._score-a._score;
+  return (a,b)=>b._roi-a._roi||b._score-a._score;
+}
+function riskRank(r){return r==='high'?3:r==='medium'?2:1}
+function dealTime(d){const t=Date.parse(d.last_posted_at||d.created_at||d.crawled_at||'');return Number.isFinite(t)?t:0}
+
+function renderMetrics(){
+  $('#metric-total').textContent=DATA.length;
+  $('#metric-focus').textContent=DATA.filter(d=>basePass(d,'focus')).length;
+  $('#metric-direct').textContent=DATA.filter(d=>basePass(d,'direct')).length;
+  $('#metric-risk').textContent=DATA.filter(d=>d._risk==='high'&&!d._ended).length;
+  $('#metric-watch').textContent=DATA.filter(d=>userState(d)==='watch').length;
+}
+function renderNavCounts(){
+  Object.keys(MODE_LABEL).forEach(mode=>{
+    const el=$(`[data-count="${mode}"]`);
+    if(el)el.textContent=DATA.filter(d=>basePass(d,mode)).length;
+  });
+}
+function renderRows(rows){
+  if(!rows.length){
+    $('#rows').innerHTML='<tr><td colspan="9" class="empty-row">没有匹配线索</td></tr>';
+    return;
+  }
+  $('#rows').innerHTML=rows.map(d=>{
+    const id=keyOf(d);
+    const state=userState(d);
+    return `<tr data-id="${attr(id)}" class="${id===selectedId?'selected':''}">
+      <td><span class="score">${d._score}</span></td>
+      <td class="title-cell"><div class="title-main">${esc(d.title)}</div><div class="title-sub">${esc(d.summary||'')}</div></td>
+      <td>${tag(d.source,'gray')}</td>
+      <td>${tag(d.category,'blue')}</td>
+      <td>${tag(STATUS_LABEL[d.status]||d.status,statusTone(d.status))}</td>
+      <td>${tag(RISK_LABEL[d._risk],riskTone(d._risk))}</td>
+      <td>${tag(EVIDENCE_LABEL[d._evidence],evidenceTone(d._evidence))}</td>
+      <td><span class="mono">${d._roi}</span></td>
+      <td><div class="row-actions">
+        <button class="mini ${state==='watch'?'active':''}" data-action="watch" data-id="${attr(id)}" type="button">观察</button>
+        <button class="mini ${state==='done'?'active':''}" data-action="done" data-id="${attr(id)}" type="button">已薅</button>
+        <button class="mini ${state==='skip'?'active':''}" data-action="skip" data-id="${attr(id)}" type="button">跳过</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+function renderDetail(){
+  const d=DATA.find(x=>keyOf(x)===selectedId);
+  if(!d){
+    $('#detail').innerHTML='<div class="detail-empty">选择一条线索查看详情</div>';
+    return;
+  }
+  const state=userState(d);
+  $('#detail').innerHTML=`<div class="panel-head">
+    <div class="panel-title">详情</div>
+    <div class="panel-meta">${esc(d.source||'')}</div>
+  </div>
+  <div class="detail-body">
+    <h2 class="detail-title">${esc(d.title)}</h2>
+    <div class="detail-summary">${esc(d.summary||'')}</div>
+    <div class="detail-grid">
+      <div class="field"><div class="field-label">决策分</div><div class="field-value mono">${d._score}/100</div></div>
+      <div class="field"><div class="field-label">性价比</div><div class="field-value mono">${d._roi}</div></div>
+      <div class="field"><div class="field-label">难度</div><div class="field-value mono">${d._difficulty.toFixed(1)}</div></div>
+      <div class="field"><div class="field-label">状态</div><div class="field-value">${STATUS_LABEL[d.status]||d.status}</div></div>
+    </div>
+    <div class="row-actions">
+      <button class="btn ${state==='watch'?'primary':''}" data-action="watch" data-id="${attr(keyOf(d))}" type="button">加入观察</button>
+      <button class="btn ${state==='done'?'primary':''}" data-action="done" data-id="${attr(keyOf(d))}" type="button">标记已薅</button>
+      <button class="btn ${state==='skip'?'primary':''}" data-action="skip" data-id="${attr(keyOf(d))}" type="button">跳过</button>
+    </div>
+    <div class="section">
+      <h2>行动步骤</h2>
+      <div class="steps">${d._steps.map(s=>`<div class="step">${esc(s)}</div>`).join('')}</div>
+    </div>
+    ${promoBlock(d)}
+    <div class="section">
+      <h2>判断</h2>
+      <ul class="list">
+        ${(d.pros||[]).map(x=>`<li>优点：${esc(x)}</li>`).join('')}
+        ${(d.cons||[]).map(x=>`<li>风险：${esc(x)}</li>`).join('')}
+      </ul>
+    </div>
+    ${commentsBlock(d)}
+    <div class="section">
+      <h2>原帖</h2>
+      ${d.url?`<a class="btn primary" href="${attr(d.url)}" target="_blank" rel="noopener">打开原帖</a>`:'<span class="tag gray">无链接</span>'}
+    </div>
+  </div>`;
+}
+function promoBlock(d){
+  if(!(d.promo_codes||[]).length)return '';
+  return `<div class="section"><h2>优惠码</h2><div class="promo-list">${d.promo_codes.map(c=>`<button class="promo" data-code="${attr(c)}" type="button">${esc(c)}</button>`).join('')}</div></div>`;
+}
+function commentsBlock(d){
+  if(!(d.comments_sample||[]).length)return '';
+  return `<div class="section"><h2>评论证据</h2><ul class="list">${d.comments_sample.map(c=>`<li>${esc(c)}</li>`).join('')}</ul></div>`;
+}
+
+function tag(text,tone){return `<span class="tag ${tone}">${esc(text||'')}</span>`}
+function statusTone(s){return s==='active'?'green':s==='conditional'?'orange':'red'}
+function riskTone(r){return r==='high'?'red':r==='medium'?'orange':'green'}
+function evidenceTone(e){return e==='high'?'green':e==='medium'?'blue':'gray'}
+function esc(s){return String(s??'').replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]))}
+function attr(s){return esc(s).replace(/`/g,'&#96;')}
+function toast(text){
+  const el=$('#toast');
+  el.textContent=text;
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),1200);
+}
+function copyText(text){
+  navigator.clipboard.writeText(text).then(()=>toast('已复制')).catch(()=>toast('复制失败'));
+}
+function digestText(){
+  return filteredDeals().slice(0,10).map((d,i)=>[
+    `${i+1}. ${d.title}`,
+    `分数 ${d._score}/100 | 性价比 ${d._roi} | ${d.category} | ${d.source} | 风险 ${RISK_LABEL[d._risk]}`,
+    `动作 ${d._steps.join(' -> ')}`,
+    `链接 ${d.url||''}`
+  ].join('\n')).join('\n\n');
+}
+
+document.addEventListener('click',e=>{
+  const nav=e.target.closest('.nav-btn');
+  if(nav){
+    filters.mode=nav.dataset.mode;
+    $$('.nav-btn').forEach(b=>b.classList.toggle('active',b===nav));
+    renderAll();
+    return;
+  }
+  const action=e.target.closest('[data-action]');
+  if(action){
+    const current=localState[action.dataset.id]||'';
+    const next=current===action.dataset.action?'':action.dataset.action;
+    setUserState(action.dataset.id,next);
+    e.stopPropagation();
+    return;
+  }
+  const promo=e.target.closest('.promo[data-code]');
+  if(promo){
+    copyText(promo.dataset.code);
+    return;
+  }
+  const row=e.target.closest('tbody tr[data-id]');
+  if(row){
+    selectedId=row.dataset.id;
+    renderRows(filteredDeals());
+    renderDetail();
+  }
+});
+$('#q').addEventListener('input',e=>{filters.q=e.target.value;renderAll()});
+$('#sort').addEventListener('change',e=>{filters.sort=e.target.value;renderAll()});
+$('#category').addEventListener('change',e=>{filters.category=e.target.value;renderAll()});
+$('#source').addEventListener('change',e=>{filters.source=e.target.value;renderAll()});
+$('#status').addEventListener('change',e=>{filters.status=e.target.value;renderAll()});
+$('#copyDigest').addEventListener('click',()=>copyText(digestText()));
+$('#resetView').addEventListener('click',()=>{
+  filters.q='';filters.sort='roi';filters.category='all';filters.source='all';filters.status='all';filters.mode='focus';
+  $('#q').value='';$('#sort').value='roi';$('#category').value='all';$('#source').value='all';$('#status').value='all';
+  $$('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode==='focus'));
+  renderAll();
+});
+
+load();
+setInterval(load,60000);
+</script>
+</body>
+</html>

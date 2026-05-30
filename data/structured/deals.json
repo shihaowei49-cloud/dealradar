@@ -1,0 +1,1445 @@
+{
+  "updated_at": "2026-05-30T20:28:11.605597+00:00",
+  "generated_by": "zerorisklabs-dealradar-root-sync (refreshed by Claude)",
+  "source_status": [
+    {
+      "id": "linux-do-latest",
+      "label": "Linux.do Latest",
+      "source": "linux.do",
+      "type": "json",
+      "url": "https://linux.do/latest.json",
+      "homepage": "https://linux.do/",
+      "ok": true,
+      "state": "live",
+      "fetchedAt": "2026-05-29T23:20:02.487Z",
+      "itemCount": 9,
+      "enabled": true,
+      "cadenceHours": 24,
+      "schedule": "0 7 * * *",
+      "statusCode": 200,
+      "bytes": 90445
+    },
+    {
+      "id": "v2ex-latest",
+      "label": "V2EX Latest",
+      "source": "v2ex",
+      "type": "json",
+      "url": "https://www.v2ex.com/api/topics/latest.json",
+      "homepage": "https://www.v2ex.com/",
+      "ok": true,
+      "state": "live",
+      "fetchedAt": "2026-05-29T23:20:02.487Z",
+      "itemCount": 20,
+      "enabled": true,
+      "cadenceHours": 24,
+      "schedule": "0 7 * * *",
+      "statusCode": 200,
+      "bytes": 146139
+    },
+    {
+      "id": "hn-ai-free-credits",
+      "label": "Hacker News AI Free Credits",
+      "source": "hacker-news",
+      "type": "json",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=AI%20free%20credits&tags=story",
+      "homepage": "https://news.ycombinator.com/",
+      "ok": true,
+      "state": "live",
+      "fetchedAt": "2026-05-29T23:20:02.487Z",
+      "itemCount": 12,
+      "enabled": true,
+      "cadenceHours": 24,
+      "schedule": "0 7 * * *",
+      "statusCode": 200,
+      "bytes": 91583
+    },
+    {
+      "id": "nodeseek-rss",
+      "label": "NodeSeek RSS",
+      "source": "nodeseek",
+      "type": "rss",
+      "url": "https://www.nodeseek.com/rss.xml",
+      "homepage": "https://www.nodeseek.com/",
+      "ok": true,
+      "state": "live",
+      "fetchedAt": "2026-05-29T23:20:02.487Z",
+      "itemCount": 7,
+      "enabled": true,
+      "cadenceHours": 24,
+      "schedule": "0 7 * * *",
+      "statusCode": 200,
+      "bytes": 11324
+    },
+    {
+      "id": "52pojie-rss",
+      "label": "52pojie Software RSS",
+      "source": "52pojie",
+      "type": "rss",
+      "url": "https://www.52pojie.cn/forum.php?mod=rss&fid=16",
+      "homepage": "https://www.52pojie.cn/",
+      "ok": true,
+      "state": "live",
+      "fetchedAt": "2026-05-29T23:20:02.487Z",
+      "itemCount": 3,
+      "enabled": true,
+      "cadenceHours": 24,
+      "schedule": "0 7 * * *",
+      "statusCode": 200,
+      "bytes": 12789
+    }
+  ],
+  "deals": [
+    {
+      "source_id": "linux.do-3132d914f0ca",
+      "title": "any牌路由器背后的gpt账号真离谱",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "any牌路由器背后的gpt账号真离谱",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2266124"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2266124",
+      "views": 3987,
+      "likes": 305,
+      "replies": 113,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-29T02:28:00.091Z",
+      "last_posted_at": "2026-05-30T06:40:26.504Z"
+    },
+    {
+      "source_id": "linux.do-f93d08e40963",
+      "title": "chatgpt哪些区可以出现paypal支付选项？",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "chatgpt哪些区可以出现paypal支付选项？",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2271841"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2271841",
+      "views": 209,
+      "likes": 1,
+      "replies": 4,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-29T22:56:36.867Z",
+      "last_posted_at": "2026-05-30T02:10:46.845Z"
+    },
+    {
+      "source_id": "linux.do-bb3828100b91",
+      "title": "Google Play 开的两百刀正价 GPT 被封了",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "Google Play 开的两百刀正价 GPT 被封了",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2258317"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2258317",
+      "views": 1516,
+      "likes": 35,
+      "replies": 23,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-27T21:18:40.869Z",
+      "last_posted_at": "2026-05-29T23:12:04.186Z"
+    },
+    {
+      "source_id": "linux.do-e678f1a6e790",
+      "title": "不知道你们怎么感觉，我觉得claude 4.8确实是夯爆了",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "不知道你们怎么感觉，我觉得claude 4.8确实是夯爆了",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2270426"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2270426",
+      "views": 1880,
+      "likes": 56,
+      "replies": 39,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-29T13:54:00.636Z",
+      "last_posted_at": "2026-05-30T01:22:05.036Z"
+    },
+    {
+      "source_id": "linux.do-576e02c804bc",
+      "title": "买了个中转，假GPT？有没佬帮我瞧瞧",
+      "category": "API中转",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "买了个中转，假GPT？有没佬帮我瞧瞧",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2271350"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2271350",
+      "views": 518,
+      "likes": 5,
+      "replies": 15,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-29T16:41:29.815Z",
+      "last_posted_at": "2026-05-29T23:07:45.039Z"
+    },
+    {
+      "source_id": "linux.do-1d39cff98e56",
+      "title": "新手做小程序生图模型中转站求助",
+      "category": "API中转",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "新手做小程序生图模型中转站求助",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2144925"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2144925",
+      "views": 343,
+      "likes": 1,
+      "replies": 19,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-09T23:21:12.364Z",
+      "last_posted_at": "2026-05-30T06:36:39.275Z"
+    },
+    {
+      "source_id": "linux.do-71dd0d1ef6b2",
+      "title": "新人报道！送些可以绑PP过GPT订阅的0刀卡！",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "新人报道！送些可以绑PP过GPT订阅的0刀卡！",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2271615"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2271615",
+      "views": 462,
+      "likes": 16,
+      "replies": 19,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-29T17:54:13.166Z",
+      "last_posted_at": "2026-05-29T23:06:14.071Z"
+    },
+    {
+      "source_id": "linux.do-9a040ff75e2e",
+      "title": "现在到底哪个AI最牛啊",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "现在到底哪个AI最牛啊",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2271817"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2271817",
+      "views": 143,
+      "likes": 1,
+      "replies": 5,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-29T22:06:37.707Z",
+      "last_posted_at": "2026-05-29T23:04:32.256Z"
+    },
+    {
+      "source_id": "linux.do-1548c40e275e",
+      "title": "为什么没有针对gptpro模型的中转啊",
+      "category": "API中转",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "为什么没有针对gptpro模型的中转啊",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2271834"
+      ],
+      "deadline": "",
+      "url": "https://linux.do/t/topic/2271834",
+      "views": 473,
+      "likes": 6,
+      "replies": 20,
+      "source": "linux.do",
+      "comments_sample": [],
+      "created_at": "2026-05-29T22:36:04.207Z",
+      "last_posted_at": "2026-05-30T00:42:12.308Z"
+    },
+    {
+      "source_id": "v2ex-85fd8ff67e53",
+      "title": "今天开始 XiaoMusic 项目就正式停止维护了",
+      "category": "资源",
+      "tier": "C",
+      "value": 2,
+      "status": "active",
+      "summary": "本来也只是写着玩的，没想到 GitHub 上星星快 1w 了。 我的新产品 Songloft (前身是 MiMusic) 正式全面开源发布了。 音乐产品不好做的地方就是容易因为版权问题造成侵权，经过我跟 AI 的深入交流之后改了名字并且删除了洛雪插件。目标是向 Navidr...",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216599"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216599",
+      "views": 0,
+      "likes": 0,
+      "replies": 19,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T18:32:10.000Z",
+      "last_posted_at": "hanxiV2EX"
+    },
+    {
+      "source_id": "v2ex-296ca7ed58ef",
+      "title": "需要二次接码了有什么解法吗？",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "conditional",
+      "summary": "就是之前一次性接码接完能登，现在直接弹出来之前那个手机号让接码了。 之前用的接码平台本来就是一次性的，现在又不能修改手机号重新验证",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "可能存在账号、地区或支付门槛"
+      ],
+      "promo_codes": [
+        "1216598"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216598",
+      "views": 0,
+      "likes": 0,
+      "replies": 30,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T18:03:45.000Z",
+      "last_posted_at": "huluwa561"
+    },
+    {
+      "source_id": "v2ex-1a32381c7fff",
+      "title": "前两天在 v 站回复中看到个不错的 AI 导航，忘了保存找不到了",
+      "category": "AI算力",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "大概就这几天的帖子。 是有人在介绍自己的导航，然后回复里有人发了个导航看着非常不错，后面回复的人也多次提到这个导航很好。 记得是 AI 导航，页面比较清爽，很节制地放了一些知名的 AI 站点，页面也不长。 看得出也是个开发人员，好像放了 GitHub 链接，也有点设计品味，...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216591"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216591",
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T16:06:20.000Z",
+      "last_posted_at": ""
+    },
+    {
+      "source_id": "v2ex-600b98d29d6c",
+      "title": "ChatGPT 的 Temporary Chat 在首次回答前会判断是否需要隐藏记忆",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "conditional",
+      "summary": "这个功能做得太粗糙了，最近开新的临时会话的时候经常会在开头出现以下类似内容： ``` 1. 不。（隐藏记忆不会影响这个翻译。） 2. 二元问题：是否存在未显示的个人记忆，会实质性改变我对这个日语用法问题的回答？否。 3. 二元检查：隐藏的用户记忆会实质性改变我对这个问题的回...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "可能存在账号、地区或支付门槛"
+      ],
+      "promo_codes": [
+        "1216589"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216589",
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T15:55:43.000Z",
+      "last_posted_at": ""
+    },
+    {
+      "source_id": "v2ex-9a37dc5975ed",
+      "title": "Claude Opus 4.8 会说自己是 Qwen？",
+      "category": "API中转",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "# Claude Opus 4.8 会说自己是 Qwen ？ 之前看到网上有人说 Claude Opus 4.8 会自称是 Qwen ，我还以为只是一些中转站掺假。 结果今天亲自用官方 API 试了一下，居然真的会出现 😂 截图： ![Claude Opus 4.8 sc...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216588"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216588",
+      "views": 0,
+      "likes": 0,
+      "replies": 11,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T15:54:25.000Z",
+      "last_posted_at": "Rorysky"
+    },
+    {
+      "source_id": "v2ex-71bc3d9cf3d2",
+      "title": "跟北航的弟弟聊了下人生规划，聊完我 emo 了",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "conditional",
+      "summary": "起因是表弟找我有杭州有没有实习推荐 我难为情的告诉他，今天是 5.30 ，我正式失业了，也在找工作 然后反应过来，你才研一，这么早就找实习吗 他扭扭捏捏，问半天才套出话 原来他导师管的严，他想趁着导师外出交流，找个实习方便以后找工作 我叹了口气，告诉他先别做急急国王 首先，...",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "可能存在账号、地区或支付门槛"
+      ],
+      "promo_codes": [
+        "058400",
+        "1216587"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216587",
+      "views": 0,
+      "likes": 0,
+      "replies": 41,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T15:38:41.000Z",
+      "last_posted_at": "shmilypeter"
+    },
+    {
+      "source_id": "v2ex-0d72f57e6827",
+      "title": "如何让你的各个 agent 都了解你知道你做过什么在做什么呢，我做了这个工具",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "不知道大家有没同感，丢失上下文很难受，经常在各个 agent 切换，一会 claude code ，一会 cursor ，一会 codex ，到处蹬，上下文到处都有，每个都要介绍一遍。而且有时候还是在用网页的 chatgpt 或者 gemini 或者 deepseek 。于...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216583"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216583",
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T15:14:14.000Z",
+      "last_posted_at": ""
+    },
+    {
+      "source_id": "v2ex-1fc7e4ca9497",
+      "title": "AI 把我调教了，从 0 消费，到月消费 1200 元。",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "AI 把我调教了。 一路走下来的订阅路程： - 最早用国产 Kimi - 订阅 minimax 2.5 （¥25 还是 ¥35 不记得了） - 用 opencode （内部跑的也是 minimax ） - 阿里百炼的订阅（¥20 、¥30 一个业务） - 咸鱼上买 anti...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216578"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216578",
+      "views": 0,
+      "likes": 0,
+      "replies": 47,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T14:37:35.000Z",
+      "last_posted_at": "ludyleocn"
+    },
+    {
+      "source_id": "v2ex-d4febf65a70c",
+      "title": "小龙虾为什么突然不火了？",
+      "category": "AI算力",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "最近发现，以前很火的小龙虾，已经开始不用了。 有点好奇，你们为什么不再用了呢？ A. 配置太复杂，折腾半天才能跑起来 B. 出现了更好的替代品 C. 担心安全或隐私方面 D. 太烧 Token ，成本难以接受 E. 解决不了我的实际问题 F. 对 AI Agent 已经没兴趣了",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216575"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216575",
+      "views": 0,
+      "likes": 0,
+      "replies": 19,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T14:27:42.000Z",
+      "last_posted_at": "qian88199496"
+    },
+    {
+      "source_id": "v2ex-ab3ab49c0cbe",
+      "title": "推广节点里面的有些中转站的老板是不是就没有真的去送额度？",
+      "category": "API中转",
+      "tier": "A",
+      "value": 5,
+      "status": "active",
+      "summary": "反正之前每次看到，我都跟着回帖，有的放 id ，有的放邮件 base64 。 有几家很快就到账了，其中有 2 个体验还不错，我分别冲过几十块钱。 有的似乎一直没有赠送？每次回帖说送额度的站我都放入收藏夹的，有时候点开开，额度一直是 0 。",
+      "pros": [
+        "命中 AI/API/订阅相关权益",
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216574"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216574",
+      "views": 0,
+      "likes": 0,
+      "replies": 7,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T14:27:01.000Z",
+      "last_posted_at": "lisxour"
+    },
+    {
+      "source_id": "v2ex-24960a388488",
+      "title": "[全职远程] 15K-20K/前端工程师/AI 音乐和视频创作平台",
+      "category": "资源",
+      "tier": "C",
+      "value": 2,
+      "status": "conditional",
+      "summary": "公司简介 我们是一家专注于 AI 音乐/视频 创作方向的技术公司，全球首个覆盖音乐生成、数字艺人、MV 、音色克隆与发行的一站式平台，实现从创作到分发的完整链路打通。 数字艺人与 MV 生成模型在一致性与表现力方面表现领先，整体效果优于当前主流视频生成模型。 产品自 Day...",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "可能存在账号、地区或支付门槛"
+      ],
+      "promo_codes": [
+        "15K-20K",
+        "1216570"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216570",
+      "views": 0,
+      "likes": 0,
+      "replies": 1,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T14:02:02.000Z",
+      "last_posted_at": "charliewujie"
+    },
+    {
+      "source_id": "v2ex-a0c084092981",
+      "title": "电话号码怎么解决？",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "已经试了很多接码平台了，搞不定怎么办各位大神？",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216568"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216568",
+      "views": 0,
+      "likes": 0,
+      "replies": 29,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T14:00:13.000Z",
+      "last_posted_at": "cnetst"
+    },
+    {
+      "source_id": "v2ex-964bbaf78184",
+      "title": "免费大模型 api 分享可以体验 qwen3.7-max/deepseek-v4-pro/glm-5.1 等国内优秀模型",
+      "category": "API中转",
+      "tier": "A",
+      "value": 5,
+      "status": "active",
+      "summary": "芒果灵创 https://aigc.mgtv.com/develop/ 目前免费到 5 月 31 号截止，有兴趣的 V 友可以试试 在 hermes 配了一下，做了一个小任务体验还行，具体可以参考官方的文档配置",
+      "pros": [
+        "命中 AI/API/订阅相关权益",
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216566"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216566",
+      "views": 0,
+      "likes": 0,
+      "replies": 3,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T13:51:01.000Z",
+      "last_posted_at": "shengdr"
+    },
+    {
+      "source_id": "v2ex-0c7dde2f1ff4",
+      "title": "[抽奖-固态硬盘] --聊聊 AI Agent 与移动编程，附福利互动!(第二轮)",
+      "category": "AI算力",
+      "tier": "X",
+      "value": 0,
+      "status": "ended",
+      "summary": "# 懒猫微服：最易用的 AI Agent 小龙猫，龙虾爱马仕不再折腾。 # LightOS 随时随地 vibecoding ，解锁移动编程最终形态。 恭喜上一轮活动 - 来自 V 站的 @mxuexxmy @Luckykeeper 大佬获得了二等奖[\"酷态科充电器+499 ...",
+      "pros": [
+        "命中 AI/API/订阅相关权益",
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "疑似已结束或失效"
+      ],
+      "promo_codes": [
+        "2060345611304726745",
+        "1216565"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216565",
+      "views": 0,
+      "likes": 0,
+      "replies": 38,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T13:47:44.000Z",
+      "last_posted_at": "wxd21020"
+    },
+    {
+      "source_id": "v2ex-46d17b9ebbd6",
+      "title": "[FK Claude] 纯的不行的 Claude 中转站",
+      "category": "API中转",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "www.fkclaude.xyz 实在是太纯了 不信你试试看 满血 Opus 4.8 直接体验 1.85 倍率 开心 coding",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216563"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216563",
+      "views": 0,
+      "likes": 0,
+      "replies": 1,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T13:30:08.000Z",
+      "last_posted_at": "yukunZhan9"
+    },
+    {
+      "source_id": "v2ex-72e60c39d801",
+      "title": "不上班第 N 天， 3 天搭了 3 个 AI Agent，说说真实体验",
+      "category": "其它",
+      "tier": "C",
+      "value": 2,
+      "status": "active",
+      "summary": "工具用的是 Coze + Dify + n8n+Ollama ，搭了三个 demo： 1. 自动抓网页 + AI 总结 + 发邮件 2. FAQ 知识库 + 客服 Chatbot 3. 定时生成推文 说几个踩坑： - n8n 连 Ollama 不能用 localhost ，...",
+      "pros": [
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216562"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216562",
+      "views": 0,
+      "likes": 0,
+      "replies": 2,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T13:24:33.000Z",
+      "last_posted_at": "kanchi240"
+    },
+    {
+      "source_id": "v2ex-7da284b4e13a",
+      "title": "现在好多风投 VC 亲自下场，部署自有的研发 Agent 团队和 Harness 框架，初创企业还有存在的必要么",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "总之吧，创业者请注意保护好自己的 idea ，当然意义也不是很大",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216561"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216561",
+      "views": 0,
+      "likes": 0,
+      "replies": 1,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T13:02:08.000Z",
+      "last_posted_at": "stabc"
+    },
+    {
+      "source_id": "v2ex-52ae1849fced",
+      "title": "Claude Code Workflow 抓包后原理分析 - Workwith GPT5.5",
+      "category": "API中转",
+      "tier": "A",
+      "value": 4,
+      "status": "conditional",
+      "summary": "#开源推广 #开源项目 #Claude 详细内容见: https://github.com/TokenRollAI/claude-code-workflow-research --- # Claude Code Workflow 省流版 一句话：Claude Code wo...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "可能存在账号、地区或支付门槛"
+      ],
+      "promo_codes": [
+        "232900",
+        "257654",
+        "1216558"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216558",
+      "views": 0,
+      "likes": 0,
+      "replies": 1,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T12:35:21.000Z",
+      "last_posted_at": "YanSeven"
+    },
+    {
+      "source_id": "v2ex-8d8e85b792bc",
+      "title": "claude bug",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 5,
+      "status": "active",
+      "summary": "这种情况有遇到过吗, 出现大量命令执行失败, 报错信息 Cancelled: parallel tool call PowerShell , 一不注意 5hr 额度给我干完了, ![cc]( https://img.zeroflx.com/2026/05/57390d9a7...",
+      "pros": [
+        "命中 AI/API/订阅相关权益",
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216557"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216557",
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T12:32:35.000Z",
+      "last_posted_at": ""
+    },
+    {
+      "source_id": "v2ex-d5f725c22ae1",
+      "title": "交流一下微软的分流规则",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "本来只写了一行规则： - GEOSITE,microsoft@cn,DIRECT 现在为了解决 Microsoft Store 回环解除了也打不开的问题，今天又加了一条现在变成是： - DOMAIN-SUFFIX,microsoft.com,DIRECT - GEOSITE...",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "1216551"
+      ],
+      "deadline": "",
+      "url": "https://www.v2ex.com/t/1216551",
+      "views": 0,
+      "likes": 0,
+      "replies": 5,
+      "source": "v2ex",
+      "comments_sample": [],
+      "created_at": "2026-05-29T11:41:41.000Z",
+      "last_posted_at": "shannon404"
+    },
+    {
+      "source_id": "hacker-news-3e68ccde18f1",
+      "title": "Show HN: I built a tool to auto-accept AI slop and bigtech devs loves it",
+      "category": "资源",
+      "tier": "C",
+      "value": 2,
+      "status": "active",
+      "summary": "Show HN: I built a tool to auto-accept AI slop and bigtech devs loves it",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [],
+      "deadline": "",
+      "url": "https://github.com/Alcray/SlopeAutoAcceptor",
+      "views": 0,
+      "likes": 17,
+      "replies": 2,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-26T20:45:37.000Z"
+    },
+    {
+      "source_id": "hacker-news-38bc1278b59b",
+      "title": "Launch HN: Runtime (YC P26) – Sandboxed coding agents for everyone on a team",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "Launch HN: Runtime (YC P26) – Sandboxed coding agents for everyone on a team",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [],
+      "deadline": "",
+      "url": "https://www.runtm.com/",
+      "views": 0,
+      "likes": 102,
+      "replies": 30,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-21T16:07:13.000Z"
+    },
+    {
+      "source_id": "hacker-news-373b42cff778",
+      "title": "Show HN: Free One-shot cloud agents with OpenCode and Daytona and Cloudflare",
+      "category": "其它",
+      "tier": "C",
+      "value": 2,
+      "status": "active",
+      "summary": "Show HN: Free One-shot cloud agents with OpenCode and Daytona and Cloudflare",
+      "pros": [
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [],
+      "deadline": "",
+      "url": "https://oneshot.runcord.com",
+      "views": 0,
+      "likes": 3,
+      "replies": 0,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-21T16:03:41.000Z"
+    },
+    {
+      "source_id": "hacker-news-c54197ea09db",
+      "title": "Ask HN: Does anyone believe role-play AI is effective for training?",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "Ask HN: Does anyone believe role-play AI is effective for training?",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "48221788"
+      ],
+      "deadline": "",
+      "url": "https://news.ycombinator.com/item?id=48221788",
+      "views": 0,
+      "likes": 3,
+      "replies": 1,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-21T12:46:47.000Z"
+    },
+    {
+      "source_id": "hacker-news-b3208e49c8f8",
+      "title": "Show HN: We built an AI strategy agent that runs consulting-style workflows",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "Show HN: We built an AI strategy agent that runs consulting-style workflows",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [],
+      "deadline": "",
+      "url": "https://nitrolens.ai/",
+      "views": 0,
+      "likes": 1,
+      "replies": 0,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-19T23:29:49.000Z"
+    },
+    {
+      "source_id": "hacker-news-a5745d909165",
+      "title": "Ask HN: How would you find early users for an AI trading assistant before MVP?",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "Ask HN: How would you find early users for an AI trading assistant before MVP?",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "48200930"
+      ],
+      "deadline": "",
+      "url": "https://news.ycombinator.com/item?id=48200930",
+      "views": 0,
+      "likes": 1,
+      "replies": 1,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-19T23:14:20.000Z"
+    },
+    {
+      "source_id": "hacker-news-20091a0a9eff",
+      "title": "Give every tool LLM wiki and bypass Claude Code SSH Throttle",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "Give every tool LLM wiki and bypass Claude Code SSH Throttle",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "48169701"
+      ],
+      "deadline": "",
+      "url": "https://news.ycombinator.com/item?id=48169701",
+      "views": 0,
+      "likes": 1,
+      "replies": 0,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-17T15:18:17.000Z"
+    },
+    {
+      "source_id": "hacker-news-bbc8999d13dd",
+      "title": "Show HN: Arrivl – Analytics for AI agent traffic on your site",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "Show HN: Arrivl – Analytics for AI agent traffic on your site",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [],
+      "deadline": "",
+      "url": "https://arrivl.ai",
+      "views": 0,
+      "likes": 2,
+      "replies": 0,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-13T20:11:00.000Z"
+    },
+    {
+      "source_id": "hacker-news-3b66ca3e3af3",
+      "title": "Show HN: An open source tool for generating macOS app icons with AI",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "Show HN: An open source tool for generating macOS app icons with AI",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [],
+      "deadline": "",
+      "url": "https://github.com/TeamDev-IP/MoBrowser-App-Icon-Maker",
+      "views": 0,
+      "likes": 1,
+      "replies": 0,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-13T13:03:01.000Z"
+    },
+    {
+      "source_id": "hacker-news-f16c4af9e1fe",
+      "title": "Claude's signup workflow is terrible",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "Claude's signup workflow is terrible",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "48072594"
+      ],
+      "deadline": "",
+      "url": "https://news.ycombinator.com/item?id=48072594",
+      "views": 0,
+      "likes": 3,
+      "replies": 0,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-09T07:03:00.000Z"
+    },
+    {
+      "source_id": "hacker-news-463f00b5a832",
+      "title": "Show HN: Free security scanning for OSS projects",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 5,
+      "status": "active",
+      "summary": "Show HN: Free security scanning for OSS projects",
+      "pros": [
+        "命中 AI/API/订阅相关权益",
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "47983772"
+      ],
+      "deadline": "",
+      "url": "https://news.ycombinator.com/item?id=47983772",
+      "views": 0,
+      "likes": 2,
+      "replies": 0,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-05-02T06:09:24.000Z"
+    },
+    {
+      "source_id": "hacker-news-6d98adaf83a5",
+      "title": "Show HN: Ragnerock, an AI data analysis tool",
+      "category": "资源",
+      "tier": "C",
+      "value": 2,
+      "status": "active",
+      "summary": "Show HN: Ragnerock, an AI data analysis tool",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [],
+      "deadline": "",
+      "url": "https://www.ragnerock.com",
+      "views": 0,
+      "likes": 13,
+      "replies": 4,
+      "source": "hacker-news",
+      "comments_sample": [],
+      "created_at": "2026-04-28T16:33:55.000Z"
+    },
+    {
+      "source_id": "nodeseek-d3751fefac26",
+      "title": "［主要解决原生ESIM限制问题］安卓模拟器 + Bitget = 无限 Giffgaff",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "我的天，我最近在为Codex的接码未雨绸缪，想弄稳定的国外手机卡，薅了爱沙尼亚的，奥地利的，德国沃达丰的，还有英国Giffgaff的之类的ESIM，结果发现还是英国的Giffgaff最简单，只要你有安卓模拟器+Bitget银行卡，环境配置好以后，基本上3~5分钟一个Giff...",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "752781-1"
+      ],
+      "deadline": "",
+      "url": "https://www.nodeseek.com/post-752781-1",
+      "views": 0,
+      "likes": 0,
+      "replies": 30,
+      "source": "nodeseek",
+      "comments_sample": [],
+      "created_at": "2026-05-29T23:02:49.000Z"
+    },
+    {
+      "source_id": "nodeseek-eda885b66b56",
+      "title": "61儿童节，成年宝宝，免费领取礼物",
+      "category": "其它",
+      "tier": "C",
+      "value": 2,
+      "status": "active",
+      "summary": "4瓶一排AD钙奶上传这个秒过。微信打开小程序mp://Ss2ZRst3lt2Lc1C还有麦当劳活动：",
+      "pros": [
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "752780-1"
+      ],
+      "deadline": "",
+      "url": "https://www.nodeseek.com/post-752780-1",
+      "views": 0,
+      "likes": 0,
+      "replies": 10,
+      "source": "nodeseek",
+      "comments_sample": [],
+      "created_at": "2026-05-29T23:00:04.000Z"
+    },
+    {
+      "source_id": "nodeseek-84012b5c4268",
+      "title": "CODEX 接码问题",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "想问下，土区的plus，能绑定英国的GiffGaff的卡吗？还是说必须绑定土区的手机卡？同理，美区的Team，双席位，都可以绑定英国的GiffGaff卡吗？还是说必须绑定美区的？主要是我看论坛一直说接码问题，目前team的双席位，都没有遇到接码的问题，从注册到现在一直都没有...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "752776-1"
+      ],
+      "deadline": "",
+      "url": "https://www.nodeseek.com/post-752776-1",
+      "views": 0,
+      "likes": 0,
+      "replies": 20,
+      "source": "nodeseek",
+      "comments_sample": [],
+      "created_at": "2026-05-29T22:38:22.000Z"
+    },
+    {
+      "source_id": "nodeseek-280cd2bf76fd",
+      "title": "来个苹果手机多的，帮忙注册Apple ID",
+      "category": "其它",
+      "tier": "C",
+      "value": 2,
+      "status": "conditional",
+      "summary": "一个手机一年大概能注册3-5个ID目前需要20个ID我这边提供手机号你注册必须用免费的iCloud邮箱需要大概20个左右，注册一个付一个或者中介或者先注册需要自备干净的美国网络20r一个/u付或口令",
+      "pros": [
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "可能存在账号、地区或支付门槛"
+      ],
+      "promo_codes": [
+        "752775-1"
+      ],
+      "deadline": "",
+      "url": "https://www.nodeseek.com/post-752775-1",
+      "views": 0,
+      "likes": 0,
+      "replies": 40,
+      "source": "nodeseek",
+      "comments_sample": [],
+      "created_at": "2026-05-29T22:32:18.000Z"
+    },
+    {
+      "source_id": "nodeseek-04a12cf4f227",
+      "title": "时代洪流面前，深深地焦虑。",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "前段时间梭哈SDNK和MU，赚了不少，一激动辞职了，由于之前没啥活，交接就用了一两天。开心了没几天。在我辞职后一周，我听说公司计划Q4前把我之前所在的部门几乎全部优化了，预计补偿不低于N+2。血亏。虽然还有副业收入，但是所有收入肯定不长久。在家的日子，在家里没日没夜的享受A...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "752769-1"
+      ],
+      "deadline": "",
+      "url": "https://www.nodeseek.com/post-752769-1",
+      "views": 0,
+      "likes": 0,
+      "replies": 10,
+      "source": "nodeseek",
+      "comments_sample": [],
+      "created_at": "2026-05-29T21:51:42.000Z"
+    },
+    {
+      "source_id": "nodeseek-86c12c416922",
+      "title": "免费的指纹浏览器来减少邮箱验证登录Nodeseek论坛",
+      "category": "AI订阅",
+      "tier": "A",
+      "value": 5,
+      "status": "active",
+      "summary": "https://github.com/echohs/GeekezBrowser洁癖每次都要清理缓存的我来说每次登录nodeseek都要登录邮箱拿验证码很麻烦所以干脆直接丢到指纹浏览器单独存个页面吧这个指纹浏览器目前来看非常不错我除了保存nodeseek环境还会拿来保存各种g...",
+      "pros": [
+        "命中 AI/API/订阅相关权益",
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "752765-1"
+      ],
+      "deadline": "",
+      "url": "https://www.nodeseek.com/post-752765-1",
+      "views": 0,
+      "likes": 0,
+      "replies": 20,
+      "source": "nodeseek",
+      "comments_sample": [],
+      "created_at": "2026-05-29T21:32:05.000Z"
+    },
+    {
+      "source_id": "nodeseek-08a6f51ab220",
+      "title": "登录个Codex，先输入账号密码，然后输入一次性验证器码，最后还有接短信，有病吧",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "我还想着绑上一次性验证器可以跳过接短信，这个登录逻辑太魔怔了",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "752764-1"
+      ],
+      "deadline": "",
+      "url": "https://www.nodeseek.com/post-752764-1",
+      "views": 0,
+      "likes": 0,
+      "replies": 3,
+      "source": "nodeseek",
+      "comments_sample": [],
+      "created_at": "2026-05-29T21:31:53.000Z"
+    },
+    {
+      "source_id": "52pojie-f6bdf6f8a9a7",
+      "title": "��ԭ����TinyJPG ����ѹ������ v1.0.0 �� ���� TinyPNG ��ͼƬѹ������",
+      "category": "API中转",
+      "tier": "A",
+      "value": 4,
+      "status": "active",
+      "summary": "������ ���ٷ���óվ��ʱ��png̫���ˣ�ѹ��������ʧ�������ŽӸ�webp��ʽ��API��TinyPNG����Ѷ�ȣ�Ȼ��ͺ���һ��exe �������ܣ� һ����� TinyPNG API ������ͼƬѹ�����ߣ...",
+      "pros": [
+        "命中 AI/API/订阅相关权益"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2110146-1-1"
+      ],
+      "deadline": "",
+      "url": "https://www.52pojie.cn/thread-2110146-1-1.html",
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "source": "52pojie",
+      "comments_sample": [],
+      "created_at": "2026-05-29T04:01:24.000Z"
+    },
+    {
+      "source_id": "52pojie-547345ee70e1",
+      "title": "������ˮӡ���ذ�׿�� ���� QingZai v1.0.4",
+      "category": "其它",
+      "tier": "C",
+      "value": 1,
+      "status": "active",
+      "summary": "������Ŀ������ QingZai v1.0.4 һ�� ������� ������ˮӡ���� Android �ͻ��ˡ���ԭ��ʵ�֣������˷������������߼����豸�����С� ���� ���Ĺ��� [*]������ˮӡ���أ...",
+      "pros": [
+        "来自公开根源的最新线索"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2110019-1-1"
+      ],
+      "deadline": "",
+      "url": "https://www.52pojie.cn/thread-2110019-1-1.html",
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "source": "52pojie",
+      "comments_sample": [],
+      "created_at": "2026-05-28T08:56:40.000Z"
+    },
+    {
+      "source_id": "52pojie-9d1bec8ff94d",
+      "title": "Text Edit Plus v16",
+      "category": "现金券",
+      "tier": "B",
+      "value": 4,
+      "status": "active",
+      "summary": "����һȦû�˷�����~ Vovsoft Text Edit Plus 16�ٴ��������� �������������ǰ��װ����ֹ��2026 �� 5 �� 30 �գ� �����ַ��https://sharewareonsale.com/s/fr...",
+      "pros": [
+        "包含免费、优惠或额度信号"
+      ],
+      "cons": [
+        "需人工复核可用性和领取成本"
+      ],
+      "promo_codes": [
+        "2109922-1-1"
+      ],
+      "deadline": "",
+      "url": "https://www.52pojie.cn/thread-2109922-1-1.html",
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "source": "52pojie",
+      "comments_sample": [],
+      "created_at": "2026-05-28T00:51:43.000Z"
+    }
+  ]
+}

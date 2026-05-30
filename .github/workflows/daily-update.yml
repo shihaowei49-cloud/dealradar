@@ -1,0 +1,31 @@
+name: 每日数据更新
+
+on:
+  schedule:
+    # 每天北京时间 08:00 运行（UTC 00:00）
+    - cron: "0 0 * * *"
+  workflow_dispatch:  # 也支持手动触发
+
+jobs:
+  update-deals:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 运行数据更新脚本
+        run: python fetch_deals.py
+
+      - name: 提交并推送更新后的 deals.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/structured/deals.json
+          git diff --cached --quiet || git commit -m "chore: auto-update deals $(date +'%Y-%m-%d')"
+          git push
