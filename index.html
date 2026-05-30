@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>羊毛雷达 · 工作台</title>
+<title>DealRadar 商用机会台</title>
+<meta name="description" content="DealRadar 将论坛优惠、AI 算力、订阅和 API 线索整理成可跟进的商用机会清单。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -86,6 +87,20 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 h1{font-size:22px;line-height:1.2;margin:0;font-weight:800;letter-spacing:0}
 .subtitle{color:var(--muted);margin-top:5px}
 .updated{font:12px/1.4 var(--mono);color:var(--muted);white-space:nowrap}
+.top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.commercial-strip{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,#fff 0%,#f7fbff 52%,#f8fafc 100%);
+  padding:12px 14px;
+  margin-bottom:14px;
+}
+.commercial-title{display:flex;align-items:center;gap:8px;font-weight:800}
+.commercial-note{color:var(--muted);font-size:12px}
 .metrics{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line);margin-bottom:14px}
 .metric{background:var(--surface);padding:12px 14px}
 .metric-label{font-size:11px;color:var(--muted);font-weight:700}
@@ -188,7 +203,10 @@ tbody tr.selected{background:var(--accent-soft)}
 @media(max-width:760px){
   .metrics{grid-template-columns:repeat(2,1fr)}
   .toolbar{grid-template-columns:1fr}
+  .commercial-strip{display:block}
+  .commercial-note{margin-top:8px}
   .topbar{display:block}
+  .top-actions{justify-content:flex-start;margin-top:12px}
 }
 </style>
 </head>
@@ -199,17 +217,17 @@ tbody tr.selected{background:var(--accent-soft)}
       <div class="brand-mark">DR</div>
       <div>
         <div class="brand-title">羊毛雷达</div>
-        <div class="brand-sub">Command Center v0.6</div>
+        <div class="brand-sub">Commercial Lite v1.0</div>
       </div>
     </div>
     <div class="nav-group">
-      <div class="nav-label">Workspace</div>
+      <div class="nav-label">Deal Desk</div>
       <button class="nav-btn active" data-mode="focus">今日行动 <span class="nav-count" data-count="focus">0</span></button>
       <button class="nav-btn" data-mode="direct">可直接薅 <span class="nav-count" data-count="direct">0</span></button>
       <button class="nav-btn" data-mode="ai">AI / API / 订阅 <span class="nav-count" data-count="ai">0</span></button>
-      <button class="nav-btn" data-mode="watch">观察列表 <span class="nav-count" data-count="watch">0</span></button>
-      <button class="nav-btn" data-mode="done">已薅 <span class="nav-count" data-count="done">0</span></button>
-      <button class="nav-btn" data-mode="skipped">已跳过 <span class="nav-count" data-count="skipped">0</span></button>
+      <button class="nav-btn" data-mode="watch">跟进中 <span class="nav-count" data-count="watch">0</span></button>
+      <button class="nav-btn" data-mode="done">已完成 <span class="nav-count" data-count="done">0</span></button>
+      <button class="nav-btn" data-mode="skipped">暂不做 <span class="nav-count" data-count="skipped">0</span></button>
       <button class="nav-btn" data-mode="all">全部线索 <span class="nav-count" data-count="all">0</span></button>
     </div>
   </aside>
@@ -217,21 +235,26 @@ tbody tr.selected{background:var(--accent-soft)}
   <main class="content">
     <header class="topbar">
       <div>
-        <h1>DealRadar Command Center</h1>
-        <div class="subtitle">按性价比、门槛、风险和证据强度排序的薅羊毛工作台。</div>
+        <h1>DealRadar 商用机会台</h1>
+        <div class="subtitle">把散落在论坛里的优惠、算力、订阅和 API 线索整理成可跟进的机会清单。</div>
       </div>
-      <div style="display:flex;align-items:center;gap:10px">
+      <div class="top-actions">
         <div class="updated" id="updated">Loading</div>
         <button class="btn" id="refresh-btn" type="button" onclick="refreshData()" style="height:30px;font-size:12px">↻ 获取最新数据</button>
       </div>
     </header>
 
+    <section class="commercial-strip">
+      <div class="commercial-title"><span class="tag blue">Commercial Lite</span><span>先展示机会，再分层核验</span></div>
+      <div class="commercial-note">默认不过度隐藏线索；低成本机会优先，小额试单后再放量。</div>
+    </section>
+
     <section class="metrics">
       <div class="metric"><div class="metric-label">线索总数</div><div class="metric-value" id="metric-total">0</div></div>
       <div class="metric"><div class="metric-label">今日行动</div><div class="metric-value" id="metric-focus">0</div></div>
       <div class="metric"><div class="metric-label">可直接薅</div><div class="metric-value" id="metric-direct">0</div></div>
-      <div class="metric"><div class="metric-label">高风险</div><div class="metric-value" id="metric-risk">0</div></div>
-      <div class="metric"><div class="metric-label">观察中</div><div class="metric-value" id="metric-watch">0</div></div>
+      <div class="metric"><div class="metric-label">需核验</div><div class="metric-value" id="metric-risk">0</div></div>
+      <div class="metric"><div class="metric-label">跟进中</div><div class="metric-value" id="metric-watch">0</div></div>
     </section>
 
     <section class="toolbar">
@@ -270,7 +293,7 @@ tbody tr.selected{background:var(--accent-soft)}
                 <th>来源</th>
                 <th>类型</th>
                 <th>状态</th>
-                <th>风险</th>
+                <th>核验</th>
                 <th>证据</th>
                 <th>性价比</th>
                 <th>操作</th>
@@ -306,9 +329,9 @@ const CONSUMER_TERMS=['steam','epic games','game','cpu','gpu','monitor','motherb
 const URGENT_TERMS=['最后一天','限时','今日','今天','马上','即将','补货','先到先得','last day','limited time'];
 const DONE_TERMS=['done','好了','已添加','加了','已加','可以了','到账','成功'];
 const STATUS_LABEL={active:'可薅',conditional:'有门槛',ended:'已结束'};
-const RISK_LABEL={low:'低',medium:'中',high:'高'};
+const RISK_LABEL={low:'稳妥',medium:'需核验',high:'谨慎'};
 const EVIDENCE_LABEL={high:'强',medium:'中',low:'弱'};
-const MODE_LABEL={focus:'今日行动',direct:'可直接薅',ai:'AI / API / 订阅',watch:'观察列表',done:'已薅',skipped:'已跳过',all:'全部线索'};
+const MODE_LABEL={focus:'今日行动',direct:'可直接薅',ai:'AI / API / 订阅',watch:'跟进中',done:'已完成',skipped:'暂不做',all:'全部线索'};
 let DATA=[];
 let selectedId='';
 let localState=loadLocalState();
@@ -369,12 +392,12 @@ function enrichDeal(d){
   let score=(Number(d.value)||1)*10+tierWeight+sourceWeight+categoryWeight+statusWeight+Math.min(aiHits*7,18)+Math.min(actionHits*5,12)+social;
   const ageDays=daysSince(d.last_posted_at||d.created_at||d.crawled_at);
   if(Number.isFinite(ageDays)&&ageDays>7)score-=Math.min(18,Math.floor(ageDays/7)*4);
-  if(isNoise)score-=35;
-  if(isConsumer)score-=18;
-  if(riskHits)score-=Math.min(riskHits*8,22);
-  if(!targetCat&&!aiHits)score=Math.min(score,d.source==='reddit'?48:58);
-  if(d.category==='其它'&&d.source==='reddit')score=Math.min(score,46);
-  if(isConsumer)score=Math.min(score,46);
+  if(isNoise)score-=18;
+  if(isConsumer)score-=6;
+  if(riskHits)score-=Math.min(riskHits*5,14);
+  if(!targetCat&&!aiHits)score=Math.min(score,d.source==='reddit'?60:70);
+  if(d.category==='其它'&&d.source==='reddit')score=Math.min(score,58);
+  if(isConsumer)score=Math.min(score,64);
   score=Math.max(0,Math.min(100,Math.round(score)));
   const risk=isEnded?'high':riskHits>=2?'high':(riskHits||d.status==='conditional'||d.category==='API中转')?'medium':'low';
   const evidence=evidenceLevel(d,text);
@@ -401,8 +424,8 @@ function evidenceLevel(d,text){
 function difficultyOf(d,risk){
   let n=1;
   if(d.status==='conditional')n+=1.4;
-  if(risk==='medium')n+=.8;
-  if(risk==='high')n+=2.2;
+  if(risk==='medium')n+=.5;
+  if(risk==='high')n+=1.6;
   if(d.category==='API中转')n+=.5;
   if((d.promo_codes||[]).length)n-=.3;
   return Math.max(1,Math.min(5,n));
@@ -413,7 +436,7 @@ function claimSteps(d,risk,text){
   if(d.category==='API中转')steps.push('注册后先跑小请求测试延迟和扣费');
   if(d.category==='AI订阅'||hasAny(text,['team','business','cursor','gemini']))steps.push('确认地区、账号资格和付款门槛');
   if(hasAny(text,['评论','留下 id','留 id','留邮箱','加群','进群']))steps.push('按原帖要求回帖 ID 或加群领取');
-  if(risk!=='low')steps.push('不要主账号和大额充值');
+  if(risk!=='low')steps.push('优先用小号或小额试单，确认稳定后再放量');
   return [...new Set(steps)].slice(0,4);
 }
 
@@ -447,9 +470,9 @@ function basePass(d,mode){
   if(mode==='skipped')return state==='skip';
   if(mode==='all')return true;
   if(state==='skip'||state==='done')return false;
-  if(mode==='direct')return !d._ended&&!d._noise&&!d._consumer&&d.status==='active'&&d._risk!=='high'&&d._score>=50&&(d._target||d._actionable);
+  if(mode==='direct')return !d._ended&&!d._noise&&d.status==='active'&&d._risk!=='high'&&d._score>=42&&(d._target||d._actionable);
   if(mode==='ai')return !d._ended&&!d._noise&&(d.category==='AI算力'||d.category==='AI订阅'||d.category==='API中转'||hasAny(d._text,AI_TERMS));
-  return !d._ended&&!d._noise&&!d._consumer&&d._score>=50&&(d._target||d._score>=70);
+  return !d._ended&&!d._noise&&d._score>=42&&(d._target||d._actionable||d._score>=62);
 }
 function filteredDeals(){
   const q=filters.q.trim().toLowerCase();
@@ -478,7 +501,7 @@ function renderMetrics(){
   $('#metric-total').textContent=DATA.length;
   $('#metric-focus').textContent=DATA.filter(d=>basePass(d,'focus')).length;
   $('#metric-direct').textContent=DATA.filter(d=>basePass(d,'direct')).length;
-  $('#metric-risk').textContent=DATA.filter(d=>d._risk==='high'&&!d._ended).length;
+  $('#metric-risk').textContent=DATA.filter(d=>d._risk!=='low'&&!d._ended).length;
   $('#metric-watch').textContent=DATA.filter(d=>userState(d)==='watch').length;
 }
 function renderNavCounts(){
@@ -505,9 +528,9 @@ function renderRows(rows){
       <td>${tag(EVIDENCE_LABEL[d._evidence],evidenceTone(d._evidence))}</td>
       <td><span class="mono">${d._roi}</span></td>
       <td><div class="row-actions">
-        <button class="mini ${state==='watch'?'active':''}" data-action="watch" data-id="${attr(id)}" type="button">观察</button>
-        <button class="mini ${state==='done'?'active':''}" data-action="done" data-id="${attr(id)}" type="button">已薅</button>
-        <button class="mini ${state==='skip'?'active':''}" data-action="skip" data-id="${attr(id)}" type="button">跳过</button>
+        <button class="mini ${state==='watch'?'active':''}" data-action="watch" data-id="${attr(id)}" type="button">跟进</button>
+        <button class="mini ${state==='done'?'active':''}" data-action="done" data-id="${attr(id)}" type="button">完成</button>
+        <button class="mini ${state==='skip'?'active':''}" data-action="skip" data-id="${attr(id)}" type="button">暂不做</button>
       </div></td>
     </tr>`;
   }).join('');
@@ -533,9 +556,9 @@ function renderDetail(){
       <div class="field"><div class="field-label">状态</div><div class="field-value">${STATUS_LABEL[d.status]||d.status}</div></div>
     </div>
     <div class="row-actions">
-      <button class="btn ${state==='watch'?'primary':''}" data-action="watch" data-id="${attr(keyOf(d))}" type="button">加入观察</button>
-      <button class="btn ${state==='done'?'primary':''}" data-action="done" data-id="${attr(keyOf(d))}" type="button">标记已薅</button>
-      <button class="btn ${state==='skip'?'primary':''}" data-action="skip" data-id="${attr(keyOf(d))}" type="button">跳过</button>
+      <button class="btn ${state==='watch'?'primary':''}" data-action="watch" data-id="${attr(keyOf(d))}" type="button">加入跟进</button>
+      <button class="btn ${state==='done'?'primary':''}" data-action="done" data-id="${attr(keyOf(d))}" type="button">标记完成</button>
+      <button class="btn ${state==='skip'?'primary':''}" data-action="skip" data-id="${attr(keyOf(d))}" type="button">暂不做</button>
     </div>
     <div class="section">
       <h2>行动步骤</h2>
@@ -543,10 +566,10 @@ function renderDetail(){
     </div>
     ${promoBlock(d)}
     <div class="section">
-      <h2>判断</h2>
+      <h2>商业判断</h2>
       <ul class="list">
         ${(d.pros||[]).map(x=>`<li>优点：${esc(x)}</li>`).join('')}
-        ${(d.cons||[]).map(x=>`<li>风险：${esc(x)}</li>`).join('')}
+        ${(d.cons||[]).map(x=>`<li>注意：${esc(x)}</li>`).join('')}
       </ul>
     </div>
     ${commentsBlock(d)}
@@ -583,7 +606,7 @@ function copyText(text){
 function digestText(){
   return filteredDeals().slice(0,10).map((d,i)=>[
     `${i+1}. ${d.title}`,
-    `分数 ${d._score}/100 | 性价比 ${d._roi} | ${d.category} | ${d.source} | 风险 ${RISK_LABEL[d._risk]}`,
+    `分数 ${d._score}/100 | 性价比 ${d._roi} | ${d.category} | ${d.source} | 核验 ${RISK_LABEL[d._risk]}`,
     `动作 ${d._steps.join(' -> ')}`,
     `链接 ${d.url||''}`
   ].join('\n')).join('\n\n');
