@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DealRadar 商用机会台</title>
-<meta name="description" content="DealRadar 将论坛优惠、AI 算力、订阅和 API 线索整理成可跟进的商用机会清单。">
+<title>羊毛雷达 · 工作台</title>
+<meta name="description" content="DealRadar 将论坛优惠、AI 算力、订阅和 API 线索整理成可跟进的机会清单。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -88,7 +88,7 @@ h1{font-size:22px;line-height:1.2;margin:0;font-weight:800;letter-spacing:0}
 .subtitle{color:var(--muted);margin-top:5px}
 .updated{font:12px/1.4 var(--mono);color:var(--muted);white-space:nowrap}
 .top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.commercial-strip{
+.data-health{
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -99,8 +99,9 @@ h1{font-size:22px;line-height:1.2;margin:0;font-weight:800;letter-spacing:0}
   padding:12px 14px;
   margin-bottom:14px;
 }
-.commercial-title{display:flex;align-items:center;gap:8px;font-weight:800}
-.commercial-note{color:var(--muted);font-size:12px}
+.health-main{display:flex;align-items:center;gap:8px;font-weight:800;flex-wrap:wrap}
+.health-note{color:var(--muted);font-size:12px}
+.source-health{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .metrics{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line);margin-bottom:14px}
 .metric{background:var(--surface);padding:12px 14px}
 .metric-label{font-size:11px;color:var(--muted);font-weight:700}
@@ -155,6 +156,9 @@ tbody tr.selected{background:var(--accent-soft)}
 .tag.green{background:var(--good-soft);color:var(--good)}
 .tag.orange{background:var(--warn-soft);color:var(--warn)}
 .tag.red{background:var(--bad-soft);color:var(--bad)}
+.reasons{display:flex;gap:4px;flex-wrap:wrap;min-width:150px}
+.reason{background:var(--surface-3);color:var(--muted);border-radius:999px;padding:2px 7px;font-size:11px;font-weight:700;white-space:nowrap}
+.manual-note{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:6px;padding:9px 10px;color:var(--text)}
 .row-actions{display:flex;gap:6px}
 .mini{
   border:1px solid var(--line);
@@ -203,8 +207,9 @@ tbody tr.selected{background:var(--accent-soft)}
 @media(max-width:760px){
   .metrics{grid-template-columns:repeat(2,1fr)}
   .toolbar{grid-template-columns:1fr}
-  .commercial-strip{display:block}
-  .commercial-note{margin-top:8px}
+  .data-health{display:block}
+  .health-note{margin-top:8px}
+  .source-health{justify-content:flex-start;margin-top:8px}
   .topbar{display:block}
   .top-actions{justify-content:flex-start;margin-top:12px}
 }
@@ -217,11 +222,11 @@ tbody tr.selected{background:var(--accent-soft)}
       <div class="brand-mark">DR</div>
       <div>
         <div class="brand-title">羊毛雷达</div>
-        <div class="brand-sub">Commercial Lite v1.0</div>
+        <div class="brand-sub">Command Center v0.7</div>
       </div>
     </div>
     <div class="nav-group">
-      <div class="nav-label">Deal Desk</div>
+      <div class="nav-label">Workspace</div>
       <button class="nav-btn active" data-mode="focus">今日行动 <span class="nav-count" data-count="focus">0</span></button>
       <button class="nav-btn" data-mode="direct">可直接薅 <span class="nav-count" data-count="direct">0</span></button>
       <button class="nav-btn" data-mode="ai">AI / API / 订阅 <span class="nav-count" data-count="ai">0</span></button>
@@ -235,8 +240,8 @@ tbody tr.selected{background:var(--accent-soft)}
   <main class="content">
     <header class="topbar">
       <div>
-        <h1>DealRadar 商用机会台</h1>
-        <div class="subtitle">把散落在论坛里的优惠、算力、订阅和 API 线索整理成可跟进的机会清单。</div>
+        <h1>DealRadar Command Center</h1>
+        <div class="subtitle">按性价比、门槛、核验和证据强度排序的机会工作台。</div>
       </div>
       <div class="top-actions">
         <div class="updated" id="updated">Loading</div>
@@ -244,9 +249,12 @@ tbody tr.selected{background:var(--accent-soft)}
       </div>
     </header>
 
-    <section class="commercial-strip">
-      <div class="commercial-title"><span class="tag blue">Commercial Lite</span><span>先展示机会，再分层核验</span></div>
-      <div class="commercial-note">默认不过度隐藏线索；低成本机会优先，小额试单后再放量。</div>
+    <section class="data-health" id="dataHealth">
+      <div>
+        <div class="health-main"><span class="tag blue">数据状态</span><span id="healthTitle">正在加载更新报告</span></div>
+        <div class="health-note" id="healthNote">自动源失败时会保留旧数据，避免页面空白。</div>
+      </div>
+      <div class="source-health" id="sourceHealth"></div>
     </section>
 
     <section class="metrics">
@@ -296,11 +304,12 @@ tbody tr.selected{background:var(--accent-soft)}
                 <th>核验</th>
                 <th>证据</th>
                 <th>性价比</th>
+                <th>推荐理由</th>
                 <th>操作</th>
               </tr>
             </thead>
             <tbody id="rows">
-              <tr><td colspan="9" class="empty-row">正在加载数据</td></tr>
+              <tr><td colspan="10" class="empty-row">正在加载数据</td></tr>
             </tbody>
           </table>
         </div>
@@ -333,6 +342,8 @@ const RISK_LABEL={low:'稳妥',medium:'需核验',high:'谨慎'};
 const EVIDENCE_LABEL={high:'强',medium:'中',low:'弱'};
 const MODE_LABEL={focus:'今日行动',direct:'可直接薅',ai:'AI / API / 订阅',watch:'跟进中',done:'已完成',skipped:'暂不做',all:'全部线索'};
 let DATA=[];
+let STATUS={};
+let OVERRIDES={};
 let selectedId='';
 let localState=loadLocalState();
 
@@ -349,20 +360,63 @@ function setUserState(id,state){
   saveLocalState();
   renderAll();
 }
+async function safeFetchJson(url){
+  try{
+    const res=await fetch(url);
+    return res.ok?await res.json():null;
+  }catch{
+    return null;
+  }
+}
+function normalizeOverrides(raw){
+  return raw&&raw.items&&typeof raw.items==='object'?raw.items:{};
+}
+function applyManualOverride(d){
+  const override=OVERRIDES[keyOf(d)]||OVERRIDES[d.url]||{};
+  const next={...d,_manualOverride:override};
+  if(override.status)next.status=override.status;
+  if(override.tier)next.tier=override.tier;
+  if(Number.isFinite(Number(override.value)))next.value=Number(override.value);
+  return next;
+}
+function buildStatusFromDeals(raw,deals){
+  const sources={};
+  deals.forEach(d=>{
+    const source=d.source||'unknown';
+    sources[source]=sources[source]||{source,label:source,reliability:'unknown',total:0,updated:0,failed:0,skipped:0,note:'从 deals.json 自动汇总'};
+    sources[source].total+=1;
+    sources[source].updated+=1;
+  });
+  return {
+    updated_at:raw.updated_at||new Date().toISOString(),
+    total_deals:deals.length,
+    updated_deals:deals.length,
+    failed_deals:0,
+    skipped_deals:0,
+    freshness:'fallback',
+    sources:Object.values(sources),
+    notes:['未读取到 data/status.json，当前状态由页面根据 deals.json 汇总。']
+  };
+}
 
 async function load(){
   try{
-    const res=await fetch('./data/structured/deals.json?'+Date.now());
+    const stamp=Date.now();
+    const res=await fetch('./data/structured/deals.json?'+stamp);
     const json=await res.json();
+    const status=await safeFetchJson('./data/status.json?'+stamp);
+    const overrides=await safeFetchJson('./data/structured/manual_overrides.json?'+stamp);
     const previousSelected=selectedId;
-    DATA=(json.deals||[]).map(enrichDeal);
+    OVERRIDES=normalizeOverrides(overrides);
+    DATA=(json.deals||[]).map(applyManualOverride).map(enrichDeal).filter(d=>!d._hidden);
+    STATUS=status||buildStatusFromDeals(json,DATA);
     selectedId=previousSelected&&DATA.some(d=>keyOf(d)===previousSelected)?previousSelected:(DATA[0]?keyOf(DATA[0]):'');
     const dt=json.updated_at?new Date(json.updated_at):new Date();
     $('#updated').textContent='Updated '+dt.toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
     setupSelects();
     renderAll();
   }catch(err){
-    $('#rows').innerHTML=`<tr><td colspan="9" class="empty-row">${esc(err.message)}</td></tr>`;
+    $('#rows').innerHTML=`<tr><td colspan="10" class="empty-row">${esc(err.message)}</td></tr>`;
   }
 }
 
@@ -402,9 +456,13 @@ function enrichDeal(d){
   const risk=isEnded?'high':riskHits>=2?'high':(riskHits||d.status==='conditional'||d.category==='API中转')?'medium':'low';
   const evidence=evidenceLevel(d,text);
   const urgency=hasAny(text,URGENT_TERMS)?'now':(Number.isFinite(ageDays)&&ageDays<=2?'soon':'open');
+  const manual=d._manualOverride||{};
+  if(manual.featured)score=Math.min(100,score+10);
+  if(manual.verified)score=Math.min(100,score+8);
   const difficulty=difficultyOf(d,risk);
   const roi=Math.round(score/difficulty);
-  return {...d,_text:text,_score:score,_risk:risk,_evidence:evidence,_urgency:urgency,_difficulty:difficulty,_roi:roi,_noise:isNoise,_ended:isEnded,_consumer:isConsumer,_target:targetCat||aiHits>0,_actionable:actionHits>0||Boolean((d.promo_codes||[]).length),_steps:claimSteps(d,risk,text)};
+  const reasons=recommendationReasons(d,{score,risk,evidence,urgency,aiHits,actionHits,riskHits});
+  return {...d,_text:text,_score:score,_risk:risk,_evidence:evidence,_urgency:urgency,_difficulty:difficulty,_roi:roi,_noise:isNoise,_ended:isEnded,_consumer:isConsumer,_target:targetCat||aiHits>0,_actionable:actionHits>0||Boolean((d.promo_codes||[]).length),_steps:claimSteps(d,risk,text),_reasons:reasons,_featured:Boolean(manual.featured),_verified:Boolean(manual.verified),_hidden:Boolean(manual.hidden),_manualNote:manual.note||''};
 }
 
 function dealText(d){
@@ -439,6 +497,21 @@ function claimSteps(d,risk,text){
   if(risk!=='low')steps.push('优先用小号或小额试单，确认稳定后再放量');
   return [...new Set(steps)].slice(0,4);
 }
+function recommendationReasons(d,info){
+  const reasons=[];
+  if(d._manualOverride?.featured)reasons.push('人工精选');
+  if(d._manualOverride?.verified)reasons.push('已核验');
+  if(info.score>=78)reasons.push('高优先级');
+  if((d.promo_codes||[]).length)reasons.push('有领取码');
+  if(info.evidence==='high')reasons.push('社区反馈强');
+  if(info.actionHits)reasons.push('有领取信号');
+  if(info.aiHits)reasons.push('AI/API 相关');
+  if(d.status==='active')reasons.push('当前可跟进');
+  if(d.status==='conditional')reasons.push('门槛待确认');
+  if(info.risk!=='low')reasons.push('小额试单');
+  if(!reasons.length)reasons.push('待人工复核');
+  return [...new Set(reasons)].slice(0,4);
+}
 
 function setupSelects(){
   fillSelect('#category',[...new Set(DATA.map(d=>d.category).filter(Boolean))],filters.category);
@@ -453,6 +526,7 @@ function fillSelect(selector,items,current){
 }
 
 function renderAll(){
+  renderHealth();
   renderMetrics();
   renderNavCounts();
   const list=filteredDeals();
@@ -462,6 +536,22 @@ function renderAll(){
   $('#tableTitle').textContent=MODE_LABEL[filters.mode]||'线索';
   $('#shown').textContent=list.length;
   $('#total').textContent=DATA.length;
+}
+function renderHealth(){
+  const sources=STATUS.sources||[];
+  const updatedAt=STATUS.updated_at?new Date(STATUS.updated_at):null;
+  const updatedText=updatedAt&&!Number.isNaN(updatedAt.getTime())?updatedAt.toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}):'未知';
+  const failed=Number(STATUS.failed_deals)||0;
+  const skipped=Number(STATUS.skipped_deals)||0;
+  const total=Number(STATUS.total_deals)||DATA.length;
+  $('#healthTitle').textContent=`${total} 条线索，最后更新 ${updatedText}`;
+  $('#healthNote').textContent=failed?`${failed} 条更新失败，已保留旧数据；${skipped} 条需要人工或浏览器兜底。`:`自动更新正常；${skipped} 条需要人工或浏览器兜底。`;
+  $('#sourceHealth').innerHTML=sources.map(sourceStatusTag).join('');
+}
+function sourceStatusTag(s){
+  const tone=s.failed?'orange':s.reliability==='stable'?'green':s.reliability==='partial'?'orange':'gray';
+  const suffix=s.failed?`失败 ${s.failed}`:s.skipped?`跳过 ${s.skipped}`:`${s.updated||0}/${s.total||0}`;
+  return tag(`${s.label||s.source} ${suffix}`,tone);
 }
 function basePass(d,mode){
   const state=userState(d);
@@ -512,7 +602,7 @@ function renderNavCounts(){
 }
 function renderRows(rows){
   if(!rows.length){
-    $('#rows').innerHTML='<tr><td colspan="9" class="empty-row">没有匹配线索</td></tr>';
+    $('#rows').innerHTML='<tr><td colspan="10" class="empty-row">没有匹配线索</td></tr>';
     return;
   }
   $('#rows').innerHTML=rows.map(d=>{
@@ -527,6 +617,7 @@ function renderRows(rows){
       <td>${tag(RISK_LABEL[d._risk],riskTone(d._risk))}</td>
       <td>${tag(EVIDENCE_LABEL[d._evidence],evidenceTone(d._evidence))}</td>
       <td><span class="mono">${d._roi}</span></td>
+      <td>${reasonTags(d)}</td>
       <td><div class="row-actions">
         <button class="mini ${state==='watch'?'active':''}" data-action="watch" data-id="${attr(id)}" type="button">跟进</button>
         <button class="mini ${state==='done'?'active':''}" data-action="done" data-id="${attr(id)}" type="button">完成</button>
@@ -555,6 +646,11 @@ function renderDetail(){
       <div class="field"><div class="field-label">难度</div><div class="field-value mono">${d._difficulty.toFixed(1)}</div></div>
       <div class="field"><div class="field-label">状态</div><div class="field-value">${STATUS_LABEL[d.status]||d.status}</div></div>
     </div>
+    <div class="section">
+      <h2>推荐理由</h2>
+      ${reasonTags(d)}
+    </div>
+    ${d._manualNote?`<div class="manual-note">人工备注：${esc(d._manualNote)}</div>`:''}
     <div class="row-actions">
       <button class="btn ${state==='watch'?'primary':''}" data-action="watch" data-id="${attr(keyOf(d))}" type="button">加入跟进</button>
       <button class="btn ${state==='done'?'primary':''}" data-action="done" data-id="${attr(keyOf(d))}" type="button">标记完成</button>
@@ -589,6 +685,7 @@ function commentsBlock(d){
 }
 
 function tag(text,tone){return `<span class="tag ${tone}">${esc(text||'')}</span>`}
+function reasonTags(d){return `<div class="reasons">${(d._reasons||[]).map(reason=>`<span class="reason">${esc(reason)}</span>`).join('')}</div>`}
 function statusTone(s){return s==='active'?'green':s==='conditional'?'orange':'red'}
 function riskTone(r){return r==='high'?'red':r==='medium'?'orange':'green'}
 function evidenceTone(e){return e==='high'?'green':e==='medium'?'blue':'gray'}
@@ -607,6 +704,7 @@ function digestText(){
   return filteredDeals().slice(0,10).map((d,i)=>[
     `${i+1}. ${d.title}`,
     `分数 ${d._score}/100 | 性价比 ${d._roi} | ${d.category} | ${d.source} | 核验 ${RISK_LABEL[d._risk]}`,
+    `推荐 ${d._reasons.join(' / ')}`,
     `动作 ${d._steps.join(' -> ')}`,
     `链接 ${d.url||''}`
   ].join('\n')).join('\n\n');

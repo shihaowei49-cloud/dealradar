@@ -6,6 +6,9 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch:  # 也支持手动触发
 
+permissions:
+  contents: write
+
 jobs:
   update-deals:
     runs-on: ubuntu-latest
@@ -20,12 +23,14 @@ jobs:
           python-version: "3.11"
 
       - name: 运行数据更新脚本
+        env:
+          LINUX_DO_COOKIE: ${{ secrets.LINUX_DO_COOKIE }}
         run: python fetch_deals.py
 
       - name: 提交并推送更新后的 deals.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/structured/deals.json
+          git add data/structured/deals.json data/status.json
           git diff --cached --quiet || git commit -m "chore: auto-update deals $(date +'%Y-%m-%d')"
           git push

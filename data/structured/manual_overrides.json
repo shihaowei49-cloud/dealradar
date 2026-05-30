@@ -1,0 +1,16 @@
+{
+  "updated_at": "2026-05-31T00:00:00+00:00",
+  "schema": {
+    "key": "使用 source_id 或 url 作为 items 的 key",
+    "fields": {
+      "featured": "true 时作为人工精选提高排序",
+      "verified": "true 时显示已核验并提高可信度",
+      "hidden": "true 时从页面隐藏",
+      "note": "人工备注，显示在详情页",
+      "status": "可选：active / conditional / ended",
+      "tier": "可选：S / A / B / C / X",
+      "value": "可选：1-5"
+    }
+  },
+  "items": {}
+}
