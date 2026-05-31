@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-30T20:28:11.605597+00:00",
-  "generated_at": "2026-05-31T00:00:00+00:00",
-  "generated_by": "manual-bootstrap",
+  "updated_at": "2026-05-31T04:13:52.252295+00:00",
+  "generated_at": "2026-05-31T04:13:52.253325+00:00",
+  "generated_by": "dealradar-auto-updater",
   "total_deals": 51,
-  "updated_deals": 48,
-  "failed_deals": 0,
-  "skipped_deals": 3,
+  "updated_deals": 25,
+  "failed_deals": 16,
+  "skipped_deals": 10,
   "freshness": "fresh",
   "sources": [
     {
@@ -27,10 +27,10 @@
       "reliability": "stable",
       "note": "Firebase 公开 API，可自动更新分数和评论数。",
       "total": 12,
-      "updated": 12,
-      "failed": 0,
+      "updated": 5,
+      "failed": 7,
       "skipped": 0,
-      "last_error": ""
+      "last_error": "missing_item_id"
     },
     {
       "source": "linux.do",
@@ -39,10 +39,10 @@
       "reliability": "partial",
       "note": "公开接口可能受限；配置 LINUX_DO_COOKIE 后更稳定。",
       "total": 9,
-      "updated": 9,
-      "failed": 0,
+      "updated": 0,
+      "failed": 9,
       "skipped": 0,
-      "last_error": ""
+      "last_error": "HTTP Error 403: Forbidden"
     },
     {
       "source": "nodeseek",
@@ -51,9 +51,9 @@
       "reliability": "manual",
       "note": "当前 Actions 中保留旧值，后续可接 Playwright。",
       "total": 7,
-      "updated": 7,
+      "updated": 0,
       "failed": 0,
-      "skipped": 0,
+      "skipped": 7,
       "last_error": ""
     },
     {
