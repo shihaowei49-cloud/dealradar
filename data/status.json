@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-07-20T03:33:26.199736+00:00",
-  "generated_at": "2026-07-20T03:33:26.201646+00:00",
+  "updated_at": "2026-07-21T02:57:05.641605+00:00",
+  "generated_at": "2026-07-21T02:57:05.643322+00:00",
   "generated_by": "dealradar-auto-updater",
   "total_deals": 51,
-  "updated_deals": 15,
-  "failed_deals": 26,
+  "updated_deals": 25,
+  "failed_deals": 16,
   "skipped_deals": 10,
   "freshness": "fresh",
   "sources": [
@@ -63,10 +63,10 @@
       "reliability": "stable",
       "note": "官方公开 API，可自动更新回复数。",
       "total": 20,
-      "updated": 10,
-      "failed": 10,
+      "updated": 20,
+      "failed": 0,
       "skipped": 0,
-      "last_error": "The read operation timed out"
+      "last_error": ""
     }
   ],
   "notes": [
